@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sgt_owner/screens/get_started_screen.dart';
+import 'package:sgt_owner/views/get_started_screen.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
 
@@ -23,7 +23,8 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(Duration(seconds: 2), () {
-      Get.off(GetStartedScreen());
+      //Get.off(() => GetStartedScreen());
+      Get.offNamed("/getStart");
     });
   }
 

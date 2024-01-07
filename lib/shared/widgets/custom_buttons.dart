@@ -13,14 +13,14 @@ class AppButton extends StatelessWidget {
       required this.textColor,
       this.borderColor,
       required this.titleText,
-      this.isIcon});
+      this.isIcon = false});
 
-  VoidCallback onTaps;
+  VoidCallback? onTaps;
   Color backgoundColor;
   Color textColor;
   Color? borderColor;
   String titleText;
-  bool? isIcon = false;
+  bool isIcon;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class AppButton extends StatelessWidget {
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          onTap: () {},
+          onTap: onTaps,
           // ignore: sized_box_for_whitespace
           child: Container(
             height: 47,
@@ -48,9 +48,9 @@ class AppButton extends StatelessWidget {
                   ),
                   Text(
                     titleText,
-                    style: AppFontStyle.semiboldTextStyle(textColor, 18.sp),
+                    style: AppFontStyle.semiboldTextStyle(textColor, 16.sp),
                   ),
-                  isIcon!
+                  isIcon
                       ? Icon(
                           Icons.arrow_forward_rounded,
                           color: textColor,

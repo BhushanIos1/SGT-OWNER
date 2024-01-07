@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:sgt_owner/service/app_exceptions.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_buttons.dart';
 import 'package:sgt_owner/shared/widgets/custom_textfield.dart';
@@ -96,9 +98,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
             child: TextButton(
               child: Text('Submit'),
               onPressed: () {
-                setState(() {
-                  _validate = _controller.text.isEmpty;
-                });
+                // setState(() {
+                //   _validate = _controller.text.isEmpty;
+                // });
+              Get.toNamed("/login");
               },
             ),
           )

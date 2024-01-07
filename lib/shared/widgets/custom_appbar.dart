@@ -44,7 +44,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         style: AppFontStyle.semiboldTextStyle(AppColors.textColor, 17.sp),
       ),
       centerTitle: false,
-      actions: [
+      actions: titleText == "Dashboard" ? [
         IconButton(
           onPressed: () {
             //screenNavigator(context, SettingsScreen());
@@ -77,7 +77,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         SizedBox(
           width: 10,
         )
-      ],
+      ] : [] ,
     );
   }
 

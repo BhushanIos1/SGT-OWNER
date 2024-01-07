@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+
 import 'package:sgt_owner/service/api_urls.dart';
 import 'package:sgt_owner/service/http_service.dart';
 /*
