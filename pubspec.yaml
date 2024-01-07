@@ -39,8 +39,7 @@ dependencies:
   google_fonts: ^6.1.0
   flutter_screenutil: ^5.9.0
   get: ^4.6.6
-  dio: ^5.4.0
-  json_serializable: ^6.7.1
+  http: ^1.1.0
   flutter_easyloading: ^3.0.5
   cached_network_image: ^3.3.0
   shared_preferences: ^2.2.2
@@ -72,6 +71,7 @@ flutter:
     - assets/splash_1.png
     - assets/splash_2.png
     - assets/splash_3.png
+    - assets/sgt_logo.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

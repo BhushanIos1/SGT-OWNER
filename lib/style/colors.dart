@@ -13,6 +13,7 @@ class AppColors {
   static const redColor = Color(0xFFEA5455);
   static const primaryBackColor = Color(0xFFD3DBE8);
   static const hintColor = Color(0xFFCCCCCC);
+  static const backgroundColor = Color(0xFFF5F6F9);
 
   static const MaterialColor kThemeColor = MaterialColor(
     0xFF244B8A, // 0% comes in here, this will be color picked if no shade is selected when defining a Color property which doesn’t require a swatch.
