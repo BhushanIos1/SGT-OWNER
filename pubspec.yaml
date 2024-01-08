@@ -70,10 +70,14 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
+    - assets/sgt_logo.png
     - assets/splash_1.png
     - assets/splash_2.png
     - assets/splash_3.png
-    - assets/sgt_logo.png
+    - assets/splash_4.png
+    - assets/splash_6.png
+    - assets/logo_1.png
+    - assets/success.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
