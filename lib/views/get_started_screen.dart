@@ -92,7 +92,6 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
           SizedBox(
             height: 20,
           ),
-          AppTextField(controller: _newController, label: "Mera Name"),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: TextButton(

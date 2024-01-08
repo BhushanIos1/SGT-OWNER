@@ -44,8 +44,8 @@ class LoginController extends GetxController {
     if (value == '' || value.isEmpty) {
       return "\u24D8  Password is required";
     }
-    if (value.length < 6) {
-      return "\u24D8  Password must be at least 6 characters long";
+    if (value.length < 8) {
+      return "\u24D8  Password must be at least 8 characters long";
     }
     if (!value.contains(RegExp(r'[A-Z]'))) {
       return "\u24D8  Password must contain at least one uppercase letter";
@@ -74,6 +74,7 @@ class LoginController extends GetxController {
     if (!isPasswordValid.value) {
       return;
     } else {
+      Get.defaultDialog(middleText: "Login Successfully");
       passFormKey.currentState!.save();
     }
   }
