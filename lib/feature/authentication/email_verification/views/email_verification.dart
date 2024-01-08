@@ -89,7 +89,7 @@ class _LoginPageState extends State<EmailVerificationPage> {
                                 AutovalidateMode.onUserInteraction,
                             child: AppTextField(
                               controller: emailController.emailController,
-                              label: "OTP",
+                              labelText: "OTP",
                               hintText: "Enter OTP",
                               onSaved: (value) {
                                 emailController.email = value!;

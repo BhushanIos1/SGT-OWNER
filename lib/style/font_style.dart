@@ -7,6 +7,10 @@ class AppFontStyle {
         color: color, fontSize: size, fontWeight: fontWeight);
   }
 
+  static lightTextStyle(Color color, double size) {
+    return _textStyle(color, size, FontWeight.w300);
+  }
+
   static regularTextStyle(Color color, double size) {
     return _textStyle(color, size, FontWeight.w400);
   }

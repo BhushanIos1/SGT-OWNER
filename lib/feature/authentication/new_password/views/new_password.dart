@@ -98,7 +98,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 AutovalidateMode.onUserInteraction,
                             child: AppTextField(
                               controller: loginController.passwordController1,
-                              label: "New Password",
+                              labelText: "New Password",
                               hintText: "Enter New Password",
                               obsecure: pCTRL.isHidden1.value,
                               suffix: IconButton(
@@ -140,7 +140,7 @@ class _NewPasswordState extends State<NewPassword> {
                                 AutovalidateMode.onUserInteraction,
                             child: AppTextField(
                               controller: loginController.passwordController2,
-                              label: "Confirm Password",
+                              labelText: "Confirm Password",
                               hintText: "Enter Confirm Password",
                               obsecure: pCTRL.isHidden2.value,
                               suffix: IconButton(
@@ -189,8 +189,7 @@ class _NewPasswordState extends State<NewPassword> {
                     loginController.checkLogin();
                         Get.to(ShouldPopAlertDialog());
                   },
-                  backgoundColor:
-                          loginController.isPasswordValid2.value
+                  backgoundColor: loginController.btnEnabled.value && (loginController.passwordController1.text == loginController.passwordController2.text)
                       ? AppColors.primaryColor
                       : AppColors.disableColor,
                   textColor: AppColors.white,

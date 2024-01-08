@@ -34,11 +34,11 @@ class NewPasswordController extends GetxController {
       });
       return "\u24D8  Password is required";
     }
-    if (value.length < 6) {
+    if (value.length < 8) {
       Future.delayed(Duration.zero, () {
         btnEnabled.value = false;
       });
-      return "\u24D8  Password must be at least 6 characters long";
+      return "\u24D8  Password must be at least 8 characters long";
     }
     if (!value.contains(RegExp(r'[A-Z]'))) {
       Future.delayed(Duration.zero, () {

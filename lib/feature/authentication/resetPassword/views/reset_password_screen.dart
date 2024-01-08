@@ -87,7 +87,7 @@ class _LoginPageState extends State<ResetPasswordPage> {
                                 AutovalidateMode.onUserInteraction,
                             child: AppTextField(
                               controller: loginController.emailController,
-                              label: "Email",
+                              labelText: "Email",
                               hintText: "Enter Email",
                               keyboardType: TextInputType.emailAddress,
                               onSaved: (value) {

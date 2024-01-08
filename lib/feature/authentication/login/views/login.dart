@@ -92,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                                 AutovalidateMode.onUserInteraction,
                             child: AppTextField(
                               controller: loginController.emailController,
-                              label: "Email",
+                              labelText: "Email",
                               hintText: "Enter Email",
                               keyboardType: TextInputType.emailAddress,
                               focusNode: _emailFocus,
@@ -112,8 +112,8 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ),
                         Padding(
-                            padding:
-                                EdgeInsets.only(left: 8, right: 8, bottom: 16.h),
+                            padding: EdgeInsets.only(
+                                left: 8, right: 8, bottom: 16.h),
                             child: Obx(
                               () => Form(
                                 key: loginController.passFormKey,
@@ -122,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: AppTextField(
                                   controller:
                                       loginController.passwordController,
-                                  label: "Password",
+                                  labelText: "Password",
                                   hintText: "Enter Password",
                                   obsecure: pCTRL.isHidden.value,
                                   suffix: IconButton(
@@ -203,7 +203,9 @@ class _LoginPageState extends State<LoginPage> {
                           AppColors.textColor, 14.sp),
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed("/signup");
+                      },
                       child: Text(
                         'Sign Up',
                         style: AppFontStyle.boldTextStyle(

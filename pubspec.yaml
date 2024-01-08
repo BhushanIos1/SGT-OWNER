@@ -43,6 +43,8 @@ dependencies:
   flutter_easyloading: ^3.0.5
   cached_network_image: ^3.3.0
   shared_preferences: ^2.2.2
+  fluttericon: ^2.0.0
+  image_picker: ^1.0.6
 
 dev_dependencies:
   flutter_test:
