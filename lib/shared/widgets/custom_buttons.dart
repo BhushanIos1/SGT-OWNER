@@ -36,7 +36,7 @@ class AppButton extends StatelessWidget {
           onTap: onTaps,
           // ignore: sized_box_for_whitespace
           child: Container(
-            height: 47,
+            height: 47.h,
             width: MediaQuery.of(context).size.width - 32,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 11),
@@ -44,7 +44,7 @@ class AppButton extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   SizedBox(
-                    width: 35.0,
+                    width: 35.w,
                   ),
                   Text(
                     titleText,

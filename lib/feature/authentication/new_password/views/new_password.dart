@@ -10,6 +10,7 @@ import 'package:sgt_owner/shared/widgets/custom_buttons.dart';
 import 'package:sgt_owner/shared/widgets/custom_textfield.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
+import 'package:sgt_owner/views/success_password_popup.dart';
 
 class NewPassword extends StatefulWidget {
   const NewPassword({super.key});
@@ -186,6 +187,7 @@ class _NewPasswordState extends State<NewPassword> {
               Obx(() => AppButton(
                   onTaps: () {
                     loginController.checkLogin();
+                        Get.to(ShouldPopAlertDialog());
                   },
                   backgoundColor:
                           loginController.isPasswordValid2.value
