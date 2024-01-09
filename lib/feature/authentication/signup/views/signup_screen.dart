@@ -621,9 +621,6 @@ class AddProfileImage extends StatelessWidget {
                                                 children: [
                                                   Expanded(
                                                     child: ElevatedButton(
-                                                      child: Text(
-                                                        'Delete',
-                                                      ),
                                                       style: ElevatedButton
                                                           .styleFrom(
                                                               minimumSize:
@@ -658,14 +655,14 @@ class AddProfileImage extends StatelessWidget {
                                                             .value = "";
                                                         Get.back();
                                                       },
+                                                      child: Text(
+                                                        'Delete',
+                                                      ),
                                                     ),
                                                   ),
                                                   SizedBox(width: 10.w),
                                                   Expanded(
                                                     child: ElevatedButton(
-                                                      child: const Text(
-                                                        'Cancel',
-                                                      ),
                                                       style: ElevatedButton
                                                           .styleFrom(
                                                         minimumSize:
@@ -688,6 +685,9 @@ class AddProfileImage extends StatelessWidget {
                                                       onPressed: () {
                                                         Get.back();
                                                       },
+                                                      child: const Text(
+                                                        'Cancel',
+                                                      ),
                                                     ),
                                                   ),
                                                 ],

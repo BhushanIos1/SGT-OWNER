@@ -171,7 +171,8 @@ class SignUpController extends GetxController {
       return;
     } else {
       Get.toNamed("/email_verification",
-              parameters: {"email": emailController.text})!
+
+              parameters: {"email": emailController.text,"signUp":'signUpSuccessful'})!
           .then((value) {
         fNameController.clear();
         lNameController.clear();

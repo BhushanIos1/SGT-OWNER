@@ -8,7 +8,6 @@ import 'package:get/route_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sgt_owner/bindings/network_binding.dart';
 import 'package:sgt_owner/shared/routes/routes.dart';
-import 'package:sgt_owner/views/get_started_screen.dart';
 import 'package:sgt_owner/views/splash_screen.dart';
 import 'package:sgt_owner/style/colors.dart';
 

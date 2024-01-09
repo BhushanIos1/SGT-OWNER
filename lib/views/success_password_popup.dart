@@ -35,12 +35,8 @@ class ShouldPopAlertDialog extends StatelessWidget {
                     height: 20.h,
                   ),
                   Text(
-                    'You can now use your new password',
-                    style:
-                        AppFontStyle.regularTextStyle(AppColors.black, 14.sp),
-                  ),
-                  Text(
-                    'to Log In to your account.',
+                    'You can now use your new password to Log In to your account.',
+                    maxLines: 3,
                     style:
                         AppFontStyle.regularTextStyle(AppColors.black, 14.sp),
                   ),
@@ -53,7 +49,7 @@ class ShouldPopAlertDialog extends StatelessWidget {
       actions: [
         AppButton(
           onTaps: () {
-            Get.to(LoginPage());
+            Get.toNamed("/login");
           },
           backgoundColor: AppColors.primaryColor,
           textColor: AppColors.white,
