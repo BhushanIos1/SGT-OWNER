@@ -42,7 +42,7 @@ class ResetController extends GetxController {
     } else {
       emailFormKey.currentState!.save();
       Get.toNamed("/email_verification", parameters: {
-        "email": emailController.text
+        "email": emailController.text,"otp":'Otp'
       });
     }
   }

@@ -15,10 +15,10 @@ class EmailVerificationPage extends StatefulWidget {
   const EmailVerificationPage({super.key});
 
   @override
-  State<EmailVerificationPage> createState() => _LoginPageState();
+  State<EmailVerificationPage> createState() => _EmailVerificationPageState();
 }
 
-class _LoginPageState extends State<EmailVerificationPage> {
+class _EmailVerificationPageState extends State<EmailVerificationPage> {
   final emailController = Get.put(EmailVerificationController());
   final timerController = Get.put(TimerController());
 

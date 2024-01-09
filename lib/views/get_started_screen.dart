@@ -35,7 +35,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   children: [
                     AppButton(
                       onTaps: () {
-                        Get.to(const WelcomeScreen());
+                        Get.toNamed("/welcome");
                       },
                       backgoundColor: AppColors.white,
                       textColor: AppColors.primaryColor,
