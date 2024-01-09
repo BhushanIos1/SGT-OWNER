@@ -44,16 +44,16 @@ class EmailVerificationController extends GetxController {
     if (!isEmailValid) {
       return;
     } else {
-    
-      if(Get.parameters['otp'].toString()=='Otp'){
-         Get.toNamed("/new_password")!.then((value) {
-        emailController.clear();
-      }
-      else{
+      if (Get.parameters['otp'].toString() == 'Otp') {
+        Get.toNamed("/new_password")!.then((value) {
+          emailController.clear();
+        });
+      } else {
         Get.toNamed("/company_details")!.then((value) {
-        emailController.clear();
+          emailController.clear();
+        });
       }
-       emailFormKey.currentState!.save();
+      emailFormKey.currentState!.save();
     }
   }
 }
