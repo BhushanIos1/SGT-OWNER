@@ -171,7 +171,15 @@ class SignUpController extends GetxController {
       return;
     } else {
       Get.toNamed("/email_verification",
-          parameters: {"email": emailController.text});
+              parameters: {"email": emailController.text})!
+          .then((value) {
+        fNameController.clear();
+        lNameController.clear();
+        emailController.clear();
+        phoneController.clear();
+        passwordController1.clear();
+        passwordController2.clear();
+      });
       passFormKey2.currentState!.save();
     }
   }

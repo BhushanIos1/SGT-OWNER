@@ -41,8 +41,10 @@ class ResetController extends GetxController {
       return;
     } else {
       emailFormKey.currentState!.save();
-      Get.toNamed("/email_verification", parameters: {
-        "email": emailController.text
+      Get.toNamed("/email_verification",
+              parameters: {"email": emailController.text})!
+          .then((value) {
+        emailController.clear();
       });
     }
   }

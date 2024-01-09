@@ -44,7 +44,9 @@ class EmailVerificationController extends GetxController {
     if (!isEmailValid) {
       return;
     } else {
-      Get.toNamed("new_password");
+      Get.toNamed("/new_password")!.then((value) {
+        emailController.clear();
+      });
       emailFormKey.currentState!.save();
     }
   }

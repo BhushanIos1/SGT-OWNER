@@ -163,7 +163,10 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.toNamed("/reset");
+                          Get.toNamed("/reset")!.then((value) {
+                            loginController.emailController.clear();
+                            loginController.passwordController.clear();
+                          });
                         },
                         child: Text(
                           'Reset here',
@@ -204,7 +207,10 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Get.toNamed("/signup");
+                        Get.toNamed("/signup")!.then((value) {
+                          loginController.emailController.clear();
+                          loginController.passwordController.clear();
+                        });
                       },
                       child: Text(
                         'Sign Up',
