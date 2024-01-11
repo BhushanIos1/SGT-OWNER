@@ -45,6 +45,8 @@ dependencies:
   shared_preferences: ^2.2.2
   fluttericon: ^2.0.0
   image_picker: ^1.0.6
+  carousel_slider: ^4.2.1
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +80,9 @@ flutter:
     - assets/splash_6.png
     - assets/logo_1.png
     - assets/success.png
+    - assets/not_success.png
+    - assets/silver_plan.png
+    - assets/YaY_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

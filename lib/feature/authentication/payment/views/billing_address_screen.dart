@@ -3,7 +3,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sgt_owner/feature/authentication/company_details/controller/company_details_controller.dart';
 import 'package:sgt_owner/feature/authentication/payment/controller/billing_address_controller.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_buttons.dart';
@@ -124,9 +123,9 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                       Container(
                         // color: AppColors.primaryBackColor,
                         width: 327.w,
-                        height: 54.h,
+                        height: 60.h,
                         decoration: BoxDecoration(
-                            color: AppColors.primaryBackColor,
+                            color: AppColors.backgroundColor,
                             borderRadius:
                                 BorderRadius.all(Radius.circular(6.r)),
                             boxShadow: [
@@ -137,28 +136,45 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                             ]),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          child: Column(
                             children: [
                               Row(
                                 mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Icon(
-                                    Icons.change_circle,
-                                    color: AppColors.primaryColor,
+                                  Column(
+                                    children: [
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceAround,
+                                        children: [
+                                          Image.asset(
+                                            'silver_plan.png',
+                                            width: 24.w,
+                                            height: 24.h,
+                                          ),
+                                          SizedBox(width: 3.w,),
+                                          Text(
+                                            'Silver',
+                                            style: AppFontStyle.mediumTextStyle(
+                                                AppColors.black, 16.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Text(
+                                        'Monthly Plan',
+                                        textAlign:TextAlign.end,
+                                        style: AppFontStyle.regularTextStyle(
+                                            AppColors.grayColor, 12.sp),
+                                      ),
+                                    ],
                                   ),
                                   Text(
-                                    'Silver',
+                                    "\$25",
                                     style: AppFontStyle.mediumTextStyle(
                                         AppColors.black, 16.sp),
                                   ),
                                 ],
-                              ),
-                              Text(
-                                "\$25",
-                                style: AppFontStyle.mediumTextStyle(
-                                    AppColors.black, 16.sp),
                               ),
                             ],
                           ),
@@ -226,46 +242,48 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                           ),
                         ),
                       ),
-                      Form(
-                        key: billingAddressController.postalCodeFormKey,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        child: AppTextField(
-                          controller:
-                              billingAddressController.postalCodeController,
-                          label: RichText(
-                              text: TextSpan(
-                                  text: 'Postal Code',
-                                  style: AppFontStyle.lightTextStyle(
-                                      AppColors.black, 14.sp),
-                                  children: [
-                                TextSpan(
-                                    text: ' *',
-                                    style: TextStyle(
-                                      color: Colors.red,
-                                    ))
-                              ])),
-                          hintText: "Enter Postal Code",
-                          keyboardType: TextInputType.number,
-                          focusNode: _postalCodeFocus,
-                          onSaved: (value) {
-                            billingAddressController.postalCode = value!;
-                          },
-                          validator: (value) {
-                            return billingAddressController
-                                .validatePostalCode(value!);
-                          },
-                          onFieldSubmitted: (value) {
-                            FocusScope.of(context)
-                                .requestFocus(_postalCodeFocus);
-                          },
-                          onTapOutside: (event) {
-                            FocusScope.of(context).unfocus();
-                          },
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Form(
+                          key: billingAddressController.postalCodeFormKey,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: AppTextField(
+                            controller:
+                                billingAddressController.postalCodeController,
+                            label: RichText(
+                                text: TextSpan(
+                                    text: 'Postal Code',
+                                    style: AppFontStyle.lightTextStyle(
+                                        AppColors.black, 14.sp),
+                                    children: [
+                                  TextSpan(
+                                      text: ' *',
+                                      style: TextStyle(
+                                        color: Colors.red,
+                                      ))
+                                ])),
+                            hintText: "Enter Postal Code",
+                            keyboardType: TextInputType.number,
+                            focusNode: _postalCodeFocus,
+                            onSaved: (value) {
+                              billingAddressController.postalCode = value!;
+                            },
+                            validator: (value) {
+                              return billingAddressController
+                                  .validatePostalCode(value!);
+                            },
+                            onFieldSubmitted: (value) {
+                              FocusScope.of(context)
+                                  .requestFocus(_postalCodeFocus);
+                            },
+                            onTapOutside: (event) {
+                              FocusScope.of(context).unfocus();
+                            },
+                          ),
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 12.h),
+                        padding: const EdgeInsets.all(8.0),
                         child: Form(
                           key: billingAddressController.selectCountryFormKey,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -279,8 +297,7 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 12.h),
+                        padding: const EdgeInsets.all(8.0),
                         child: Form(
                           key: billingAddressController.selectStateFormKey,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -301,8 +318,7 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 12.h),
+                        padding: const EdgeInsets.all(8.0),
                         child: Form(
                           key: billingAddressController.selectCityFormKey,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -320,9 +336,6 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                                 }),
                         ),
                       ),
-                      Text('Selected Country: $selectedCountry'),
-                      Text('Selected State: $selectedState'),
-                      Text('Selected City: $selectedCity'),
                     ],
                   ),
                 ),
@@ -362,18 +375,27 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label),
-        DropdownButton(
+        DropdownButtonFormField(
           value: items.contains(selectedCountry) ? selectedCountry : null,
-          // value: items.contains((selectedCountry) != null ? selectedCountry : (selectedState)!=null ? selectedState :(selectedCity)!=null ? selectedCity : null),
-          items: items
-              .map((item) => DropdownMenuItem(
-                    value: item,
-                    child: Text(item),
-                  ))
-              .toList(),
           onChanged: onChanged,
+          items: items.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          decoration: InputDecoration(
+            labelText: label,
+            border: OutlineInputBorder(),
+          ),
         ),
+
+        // (newValue) {
+        //     setState(() {
+        //       selectedValue = newValue.toString();
+        //       textEditingController.text = selectedValue;
+        //     });
+        //   },
       ],
     );
   }

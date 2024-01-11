@@ -4,7 +4,11 @@ import 'package:get/get.dart';
 import 'package:sgt_owner/feature/authentication/company_details/views/company_details_screen.dart';
 import 'package:sgt_owner/feature/authentication/email_verification/views/email_verification.dart';
 import 'package:sgt_owner/feature/authentication/new_password/views/new_password.dart';
+import 'package:sgt_owner/feature/authentication/payment/views/apply_coupon_screen.dart';
 import 'package:sgt_owner/feature/authentication/payment/views/billing_address_screen.dart';
+import 'package:sgt_owner/feature/authentication/payment/views/coupon_applied_popup.dart';
+import 'package:sgt_owner/feature/authentication/payment/views/oops_coupon_popup.dart';
+import 'package:sgt_owner/feature/authentication/payment/views/payment_screen.dart';
 import 'package:sgt_owner/feature/authentication/payment/views/select_plan_screen.dart';
 import 'package:sgt_owner/feature/authentication/resetPassword/views/reset_password_screen.dart';
 import 'package:sgt_owner/feature/authentication/signup/views/signup_screen.dart';
@@ -26,5 +30,9 @@ class RouteClass {
     GetPage(name: "/company_details", page: () => CompanyDetailsPage()),
     GetPage(name: "/select_plan", page: () => SelectedPlanPage()),
     GetPage(name: "/billing_address", page: () => BillingAddressPage()),
+    GetPage(name: "/payment_details", page: () => PaymentDetailsPage()),
+    GetPage(name: "/apply_coupon", page: () => ApplyCouponPage()),
+    GetPage(name: "/oops_coupon_popUp", page: () => OopsPopupDialog()),
+    GetPage(name: "/coupon_applied_popup", page: () => CouponAppliedDialog()),
   ];
 }

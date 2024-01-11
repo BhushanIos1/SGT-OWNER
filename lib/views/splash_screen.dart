@@ -4,11 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sgt_owner/feature/authentication/payment/views/select_plan_screen.dart';
-import 'package:sgt_owner/views/get_started_screen.dart';
+import 'package:sgt_owner/feature/authentication/payment/views/oops_coupon_popup.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
-import 'package:sgt_owner/views/success_password_popup.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,8 +23,13 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(Duration(seconds: 2), () {
-      Get.offNamed("/getStart");
+      // Get.offNamed("/getStart");
       // Get.toNamed("/billing_address");
+      Get.toNamed("/payment_details",parameters: {"CouponStatus":"Successful"});
+      // Get.toNamed("/apply_coupon");
+      // Get.toNamed("/oops_popUp");
+      // Get.toNamed("/coupon_applied_popup");
+      // Get.toNamed("/select_plan");
     });
   }
 
