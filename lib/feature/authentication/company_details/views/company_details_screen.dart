@@ -299,67 +299,59 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 12.h),
+                        padding: const EdgeInsets.all(8.0),
                         child: Form(
                           key: companyDetailsController.selectCountryFormKey,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
                           child: buildDropdown('Country', countries, (value) {
-                        setState(() {
-                          selectedCountry = value;
-                          selectedState = null;
-                          selectedCity = null;
-                        });
-                      }),
+                            setState(() {
+                              selectedCountry = value;
+                              selectedState = null;
+                              selectedCity = null;
+                            });
+                          }),
                         ),
                       ),
-
-
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 12.h),
+                        padding: const EdgeInsets.all(8.0),
                         child: Form(
                           key: companyDetailsController.selectStateFormKey,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                          child: 
-                        selectedCountry != null ? 
-                        buildDropdown('State', states[selectedCountry]!,
-                            (value) {
-                          setState(() {
-                            selectedState = value;
-                            selectedCity = null;
-                          });
-                        }):buildDropdown('State',[] ,(value) {
-                          setState(() {
-                            selectedState = value;
-                            selectedCity = null;
-                          });
-                        }),
+                          child: selectedCountry != null
+                              ? buildDropdown('State', states[selectedCountry]!,
+                                  (value) {
+                                  setState(() {
+                                    selectedState = value;
+                                    selectedCity = null;
+                                  });
+                                })
+                              : buildDropdown('State', [], (value) {
+                                  setState(() {
+                                    selectedState = value;
+                                    selectedCity = null;
+                                  });
+                                }),
                         ),
                       ),
-
                       Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: 8, vertical: 12.h),
+                        padding: const EdgeInsets.all(8.0),
                         child: Form(
                           key: companyDetailsController.selectCityFormKey,
                           autovalidateMode: AutovalidateMode.onUserInteraction,
-                          child: 
-                        selectedState != null ?
-                        buildDropdown('City', cities[selectedState]!, (value) {
-                          setState(() {
-                            selectedCity = value;
-                          });
-                        }):buildDropdown('City', [], (value) {
-                          setState(() {
-                            selectedCity = value;
-                          });
-                        }),
+                          child: selectedState != null
+                              ? buildDropdown('City', cities[selectedState]!,
+                                  (value) {
+                                  setState(() {
+                                    selectedCity = value;
+                                  });
+                                })
+                              : buildDropdown('City', [], (value) {
+                                  setState(() {
+                                    selectedCity = value;
+                                  });
+                                }),
                         ),
                       ),
-                      Text('Selected Country: $selectedCountry'),
-                      Text('Selected State: $selectedState'),
-                      Text('Selected City: $selectedCity'),
                     ],
                   ),
                 ),
@@ -373,7 +365,6 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
                   AppButton(
                       onTaps: () {
                         companyDetailsController.checkValidFormField();
-                        // Get.toNamed("/select_plan");
                       },
                       backgoundColor:
                           // companyDetailsController.btnEnabled.value
@@ -396,24 +387,25 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
     );
   }
 
-
-  Widget buildDropdown(String label, List<String> items,onChanged) {
+  Widget buildDropdown(String label, List<String> items, onChanged) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label),
-        DropdownButton(
+        DropdownButtonFormField(
           value: items.contains(selectedCountry) ? selectedCountry : null,
-          items: items
-              .map((item) => DropdownMenuItem(
-                    value: item,
-                    child: Text(item),
-                  ))
-              .toList(),
           onChanged: onChanged,
+          items: items.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+          decoration: InputDecoration(
+            labelText: label,
+            border: OutlineInputBorder(),
+          ),
         ),
       ],
     );
   }
-
 }

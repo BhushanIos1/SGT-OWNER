@@ -30,9 +30,6 @@ class  CompanyDetailsController extends GetxController {
   RxBool isCompanyNameValid = false.obs;
   RxBool isCompanyAddressValid = false.obs;
   RxBool isPostalCodeValid = false.obs;
-  // RxBool isNumberValid = false.obs;
-  // RxBool isPasswordValid1 = false.obs;
-  // RxBool isPasswordValid2 = false.obs;
   // RxBool btnEnabled = false.obs;
 
   @override
@@ -78,24 +75,24 @@ class  CompanyDetailsController extends GetxController {
   }
 
   void checkValidFormField() {
-    // isCompanyNameValid.value = companyNameFormKey.currentState!.validate();
-    // if (!isCompanyNameValid.value) {
-    //   return;
-    // } else {
-    //   companyNameFormKey.currentState!.save();
-    // }
-    // isCompanyAddressValid.value = companyAddressFormKey.currentState!.validate();
-    // if (!isCompanyAddressValid.value) {
-    //   return;
-    // } else {
-    //   companyAddressFormKey.currentState!.save();
-    // }
-    // isPostalCodeValid.value = postalCodeFormKey.currentState!.validate();
-    // if (!isPostalCodeValid.value) {
-    //   return;
-    // } else {
-    //   postalCodeFormKey.currentState!.save();
-    // }
+    isCompanyNameValid.value = companyNameFormKey.currentState!.validate();
+    if (!isCompanyNameValid.value) {
+      return;
+    } else {
+      companyNameFormKey.currentState!.save();
+    }
+    isCompanyAddressValid.value = companyAddressFormKey.currentState!.validate();
+    if (!isCompanyAddressValid.value) {
+      return;
+    } else {
+      companyAddressFormKey.currentState!.save();
+    }
+    isPostalCodeValid.value = postalCodeFormKey.currentState!.validate();
+    if (!isPostalCodeValid.value) {
+      return;
+    } else {
+      postalCodeFormKey.currentState!.save();
+    }
 
     Get.toNamed("/billing_address");
 

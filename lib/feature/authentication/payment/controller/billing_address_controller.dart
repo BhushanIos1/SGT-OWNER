@@ -53,19 +53,19 @@ class  BillingAddressController extends GetxController {
   }
 
   void checkValidFormField() {
-    isStreetAddressValid.value = streetAddressFormKey.currentState!.validate();
-    if (!isStreetAddressValid.value) {
-      return;
-    } else {
-      streetAddressFormKey.currentState!.save();
-    }
-    isPostalCodeValid.value = postalCodeFormKey.currentState!.validate();
-    if (!isPostalCodeValid.value) {
-      return;
-    } else {
-      postalCodeFormKey.currentState!.save();
-    }
-
+    // isStreetAddressValid.value = streetAddressFormKey.currentState!.validate();
+    // if (!isStreetAddressValid.value) {
+    //   return;
+    // } else {
+    //   streetAddressFormKey.currentState!.save();
+    // }
+    // isPostalCodeValid.value = postalCodeFormKey.currentState!.validate();
+    // if (!isPostalCodeValid.value) {
+    //   return;
+    // } else {
+    //   postalCodeFormKey.currentState!.save();
+    // }
+    Get.toNamed("/payment_details",parameters: {"payment":"true"});
     // isPasswordValid2.value = passFormKey2.currentState!.validate();
     // if (!isPasswordValid2.value) {
     //   return;
