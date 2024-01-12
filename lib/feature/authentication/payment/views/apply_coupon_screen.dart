@@ -92,7 +92,7 @@ class _ApplyCouponPageState extends State<ApplyCouponPage> {
                   child: Row(
                     children: [
                       Container(
-                          width: 40.w,
+                          width: 45.w,
                           height: 140.h,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -195,7 +195,7 @@ class _CouponCardState extends State<CouponCard> {
         child: Row(
           children: [
             Container(
-                width: 40.w,
+                width: 45.w,
                 height: 140.h,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
@@ -209,8 +209,10 @@ class _CouponCardState extends State<CouponCard> {
                   child: Center(
                     child: Text(
                       '50% OFF',
+                      // style:TextStyle(color: AppColors.white,fontSize: 16.sp,fontWeight: FontWeight.w700),
                       style: AppFontStyle.semiboldTextStyle(
                           AppColors.white, 16.sp),
+                          // softWrap: false
                     ),
                   ),
                 )),

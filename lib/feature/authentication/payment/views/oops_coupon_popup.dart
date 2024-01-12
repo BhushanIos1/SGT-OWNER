@@ -12,45 +12,58 @@ class OopsPopupDialog extends StatelessWidget {
     return AlertDialog(
       backgroundColor: AppColors.white,
       title: Center(
-        child: Column(children: [
-          Image.asset(
-            'assets/not_success.png',
-            width: 60.w,
-            height: 60.h,
-          ),
-          Center(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(
-                    '‘SGTSUPER100',
-                    maxLines: 3,
-                    style: AppFontStyle.regularTextStyle(
-                        AppColors.secondaryColor, 14.sp),
-                  ),
-                  SizedBox(
-                    height: 8.h,
-                  ),
-                  Text(
-                    'Oops Coupon Not Found',
-                    style:
-                        AppFontStyle.semiboldTextStyle(AppColors.black, 18.sp),
-                  ),
-                  SizedBox(
-                    height: 20.h,
-                  ),
-                  Text(
-                    'There is no coupon code exist with this code',
-                    maxLines: 3,
-                    style: AppFontStyle.regularTextStyle(
-                        AppColors.secondaryColor, 14.sp),
-                  ),
-                ],
+        child: Stack(
+          children:[ Column(children: [
+            Image.asset(
+              'assets/not_success.png',
+              width: 60.w,
+              height: 60.h,
+            ),
+            Center(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
+                  children: [
+                    Text(
+                      '‘SGTSUPER100',
+                      maxLines: 3,
+                      style: AppFontStyle.regularTextStyle(
+                          AppColors.secondaryColor, 14.sp),
+                    ),
+                    SizedBox(
+                      height: 8.h,
+                    ),
+                    Text(
+                      'Oops Coupon Not Found',
+                      style:
+                          AppFontStyle.semiboldTextStyle(AppColors.black, 18.sp),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Text(
+                      'There is no coupon code exist with this code',
+                      maxLines: 3,
+                      style: AppFontStyle.regularTextStyle(
+                          AppColors.secondaryColor, 14.sp),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-        ]),
+          ]),
+          Positioned(
+            top: 1.0,
+            right: 1.0,
+            child: IconButton(
+              icon: Icon(Icons.close),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          )
+          ]
+        ),
       ),
       actions: [
         // AppButton(

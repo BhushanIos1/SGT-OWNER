@@ -144,7 +144,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                         height: 12.h,
                       ),
                       // params status
-                      if (Get.parameters['payment'].toString() == 'true')
+                      Get.parameters['payment'].toString() == 'true' ?
                         Container(
                           width: 327.w,
                           height: 54.h,
@@ -179,9 +179,8 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                               ),
                             ),
                           ),
-                        ),
-                      if (Get.parameters['CouponStatus'].toString() ==
-                          'Successful')
+                        )
+                        :
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: DottedBorder(
@@ -197,7 +196,8 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                       BorderRadius.all(Radius.circular(6.r)),
                                   boxShadow: [
                                     BoxShadow(
-                                      color: AppColors.disableColor.withAlpha(50),
+                                      color:
+                                          AppColors.disableColor.withAlpha(50),
                                       blurRadius: 1.0,
                                     )
                                   ]),
@@ -227,7 +227,8 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                                   'SGTSUPER100',
                                                   style: AppFontStyle
                                                       .mediumTextStyle(
-                                                          AppColors.black, 16.sp),
+                                                          AppColors.black,
+                                                          16.sp),
                                                 ),
                                               ],
                                             ),
@@ -236,28 +237,46 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                               textAlign: TextAlign.end,
                                               style:
                                                   AppFontStyle.regularTextStyle(
-                                                      AppColors.greenColor, 12.sp),
+                                                      AppColors.greenColor,
+                                                      12.sp),
                                             ),
                                           ],
                                         ),
-                                        Text(
-                                          "\$25",
-                                          style: AppFontStyle.mediumTextStyle(
-                                              AppColors.black, 16.sp),
+                                        GestureDetector(
+                                          onTap: () => {
+                                            Get.toNamed('/payment_details',
+                                                parameters: {"payment": "true"})
+                                          },
+                                          child: Text(
+                                            "Remove",
+                                            style:
+                                                AppFontStyle.semiboldTextStyle(
+                                                    AppColors.primaryColor,
+                                                    14.sp),
+                                          ),
                                         ),
                                       ],
                                     ),
                                     const MySeparator(
                                         color: AppColors.primaryColor),
-                                        SizedBox(height: 12.h,),
+                                    SizedBox(
+                                      height: 12.h,
+                                    ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      crossAxisAlignment: CrossAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
                                       children: [
-                                        Text(
-                                          "View more coupons",
-                                          style: AppFontStyle.semiboldTextStyle(
-                                              AppColors.black, 16.sp),
+                                        GestureDetector(
+                                          onTap: () => {
+                                            Get.toNamed("/apply_coupon")
+                                          },
+                                          child: Text(
+                                            "View more coupons",
+                                            style: AppFontStyle.semiboldTextStyle(
+                                                AppColors.black, 16.sp),
+                                          ),
                                         ),
                                         Icon(
                                           Icons.arrow_right,
@@ -276,7 +295,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                       ),
                       Container(
                         width: 327.w,
-                        height: 93.h,
+                        height: 118.h,
                         decoration: BoxDecoration(
                             color: AppColors.white,
                             borderRadius:
@@ -323,6 +342,25 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                   ),
                                 ],
                               ),
+                              if (Get.parameters['CouponStatus'].toString() ==
+                                  'Successful')
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Discount Coupon",
+                                      style: AppFontStyle.mediumTextStyle(
+                                          AppColors.black, 14.sp),
+                                    ),
+                                    Text(
+                                      "\$5",
+                                      style: AppFontStyle.mediumTextStyle(
+                                          AppColors.black, 14.sp),
+                                    ),
+                                  ],
+                                ),
+                              Get.parameters['CouponStatus'].toString() == 'Successful' ?
                               Container(
                                 color: AppColors.backgroundColor,
                                 child: Row(
@@ -332,16 +370,35 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                     Text(
                                       "Total Amount",
                                       style: AppFontStyle.boldTextStyle(
-                                          AppColors.black, 14.sp),
+                                          AppColors.primaryColor, 14.sp),
+                                    ),
+                                    Text(
+                                      "\$25",
+                                      style: AppFontStyle.boldTextStyle(
+                                          AppColors.primaryColor, 14.sp),
+                                    ),
+                                  ],
+                                ),
+                              ):Container(
+                                color: AppColors.backgroundColor,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "Total Amount",
+                                      style: AppFontStyle.boldTextStyle(
+                                          AppColors.primaryColor, 14.sp),
                                     ),
                                     Text(
                                       "\$30",
                                       style: AppFontStyle.boldTextStyle(
-                                          AppColors.black, 14.sp),
+                                          AppColors.primaryColor, 14.sp),
                                     ),
                                   ],
                                 ),
                               ),
+                              
                             ],
                           ),
                         ),
@@ -358,7 +415,8 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                   // Obx(() =>
                   AppButton(
                       onTaps: () {
-                        billingAddressController.checkValidFormField();
+                        Get.defaultDialog(middleText: "Payment is Successfully done");
+                        // billingAddressController.checkValidFormField();
                       },
                       backgoundColor:
                           // billingAddressController.btnEnabled.value
