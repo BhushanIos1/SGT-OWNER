@@ -19,6 +19,7 @@ class CouponAppliedDialog extends StatelessWidget {
                 'YaY_icon.png',
                 width: 60.w,
                 height: 60.h,
+                fit: BoxFit.contain,
               ),
               Center(
                 child: Padding(

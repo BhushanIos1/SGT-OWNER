@@ -25,6 +25,7 @@ class AppTextField extends StatelessWidget {
   final String? errorText;
   final Widget? label;
   final String? labelText;
+  final FloatingLabelBehavior? floatingLabelBehavior;
 
   const AppTextField(
       {Key? key,
@@ -48,6 +49,7 @@ class AppTextField extends StatelessWidget {
       this.enabled = true,
       this.errorText,
       this.labelText,
+      this.floatingLabelBehavior,
       this.label})
       : super(key: key);
 
@@ -75,6 +77,7 @@ class AppTextField extends StatelessWidget {
         onFieldSubmitted: onFieldSubmitted,
         enabled: enabled,
         decoration: InputDecoration(
+          floatingLabelBehavior: floatingLabelBehavior,
           filled: true,
           fillColor: Colors.white,
           hintText: hintText,
@@ -136,6 +139,8 @@ class SignUpTextField extends StatelessWidget {
   final Widget? label;
   final String? labelText;
   final int? maxWords;
+  final int? maxLines;
+
 
   const SignUpTextField(
       {Key? key,
@@ -160,7 +165,8 @@ class SignUpTextField extends StatelessWidget {
       this.errorText,
       this.labelText,
       this.label,
-      this.maxWords})
+      this.maxWords,
+      this.maxLines})
       : super(key: key);
 
   @override
@@ -187,6 +193,7 @@ class SignUpTextField extends StatelessWidget {
         onFieldSubmitted: onFieldSubmitted,
         enabled: enabled,
         maxLength: maxWords,
+        maxLines: maxLines,
         buildCounter: (context,
             {required currentLength, required isFocused, maxLength}) {
           return Container(
@@ -213,7 +220,7 @@ class SignUpTextField extends StatelessWidget {
           label: label,
           labelText: labelText,
           labelStyle: AppFontStyle.regularTextStyle(AppColors.black, 12.sp),
-          contentPadding: EdgeInsets.symmetric(horizontal: 19.w),
+          contentPadding: EdgeInsets.symmetric(horizontal: 19.w,vertical: 5.h),
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5.0),
             borderSide:

@@ -152,6 +152,7 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                                             'silver_plan.png',
                                             width: 24.w,
                                             height: 24.h,
+                                            fit: BoxFit.contain,
                                           ),
                                           SizedBox(width: 3.w,),
                                           Text(
