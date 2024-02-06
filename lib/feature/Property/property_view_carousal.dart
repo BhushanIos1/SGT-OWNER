@@ -14,32 +14,55 @@ class PropertyCarousal extends StatefulWidget {
 }
 
 class _PropertyCarousalState extends State<PropertyCarousal> {
+  PageController? _pageController;
+  int activePage = 1;
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(viewportFraction: 0.8);
+  }
+
+  List<String> images = [
+    "https://images.wallpapersden.com/image/download/purple-sunrise-4k-vaporwave_bGplZmiUmZqaraWkpJRmbmdlrWZlbWU.jpg",
+    "https://wallpaperaccess.com/full/2637581.jpg",
+    "https://uhdwallpapers.org/uploads/converted/20/01/14/the-mandalorian-5k-1920x1080_477555-mm-90.jpg"
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         CarouselSlider(
-          options: CarouselOptions(height: 250.h),
-          items: [1, 2, 3, 4].map((i) {
-            return Builder(
-              builder: (BuildContext context) {
+          options: CarouselOptions(height: 250.h,viewportFraction: 1),
+          items: images.map((i) {
+            return PageView.builder(
+              pageSnapping: true,
+              controller: _pageController,
+              onPageChanged: (page) {
+                setState(() {
+                  activePage = page;
+                });
+              },
+              itemCount: images.length,
+              itemBuilder: (context, pagePosition) {
                 return Container(
                   width: MediaQuery.of(context).size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5.0),
-                  decoration: BoxDecoration(
-                    color: AppColors.white,
-                  ),
-                  child: Image.asset(
-                    'assets/property_image.jpeg',
-                    width: Get.width - 32.w,
-                    // height: 178.h,
-                    fit: BoxFit.fill,
-                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 5.w),
+                  // decoration: BoxDecoration(
+                  //   color: AppColors.white,
+                  // ),
+                  child: Image.network(images[pagePosition],fit: BoxFit.cover,width: 443.w,height: 178.h,),
                 );
               },
             );
           }).toList(),
         ),
+        SizedBox(
+          height: 16.h,
+        ),
+         Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+         children: indicators(images.length,activePage)),
         SizedBox(
           height: 16.h,
         ),
@@ -98,4 +121,18 @@ class _PropertyCarousalState extends State<PropertyCarousal> {
       ],
     );
   }
+
+
+  List<Widget> indicators(imagesLength,currentIndex) {
+  return List<Widget>.generate(imagesLength, (index) {
+    return Container(
+      margin: EdgeInsets.all(3.w),
+      width: 10.w,
+      height: 10.h,
+      decoration: BoxDecoration(
+          color: currentIndex == index ? AppColors.primaryColor : AppColors.primaryBackColor,
+          shape: BoxShape.circle),
+    );
+  });
+}
 }

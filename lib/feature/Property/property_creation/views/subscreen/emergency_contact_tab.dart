@@ -151,7 +151,7 @@ class _EmergencyContactWidgetTabState extends State<EmergencyContactWidgetTab> {
                               emergencyContactController.phoneController,
                           label: RichText(
                               text: TextSpan(
-                                  text: 'Phone Number',
+                                  text: 'Mobile Number',
                                   style: AppFontStyle.lightTextStyle(
                                       AppColors.black, 14.sp),
                                   children: [
@@ -161,7 +161,7 @@ class _EmergencyContactWidgetTabState extends State<EmergencyContactWidgetTab> {
                                       color: Colors.red,
                                     ))
                               ])),
-                          hintText: "Enter Phone Number",
+                          hintText: "Enter Mobile Number",
                           keyboardType: TextInputType.phone,
                           focusNode: _phoneFocus,
                           onSaved: (value) {

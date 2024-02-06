@@ -62,17 +62,6 @@ class _PropertyCreationPageState extends State<PropertyCreationPage>
           type: StepperType.horizontal,
           steps: buildStep(),
           currentStep: propertyCreationController.currentStep.value,
-          // onStepContinue: () {
-          //   if (propertyCreationController.currentStep.value ==
-          //       buildStep().length - 1) {
-          //     print("Send Data to Server");
-          //   } else {
-          //     propertyCreationController.currentStep.value++;
-          //   }
-          // },
-          // onStepCancel: () {
-          //   propertyCreationController.currentStep.value == 0 ? null : propertyCreationController.currentStep.value--;
-          // },
           onStepTapped: (index) {
             propertyCreationController.currentStep.value = index;
           },
@@ -107,19 +96,22 @@ class _PropertyCreationPageState extends State<PropertyCreationPage>
                         ? "Save & Next"
                         : "Next"),
                 propertyCreationController.currentStep.value ==
-                            buildStep().length - 1 ?
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 24.h,
-                    ),
-                    Text(
-                  'Save Property',
-                  style: AppFontStyle.semiboldTextStyle(
-                      AppColors.primaryColor, 16.sp),
-                ),
-                  ],
-                ):SizedBox(height:1.h,),
+                        buildStep().length - 1
+                    ? Column(
+                        children: [
+                          SizedBox(
+                            height: 24.h,
+                          ),
+                          Text(
+                            'Save Property',
+                            style: AppFontStyle.semiboldTextStyle(
+                                AppColors.primaryColor, 16.sp),
+                          ),
+                        ],
+                      )
+                    : SizedBox(
+                        height: 1.h,
+                      ),
                 // ),
                 SizedBox(
                   height: 38.h,
@@ -135,18 +127,24 @@ class _PropertyCreationPageState extends State<PropertyCreationPage>
   List<Step> buildStep() {
     return [
       Step(
-          title: Text(
-            'Property',
-            style:
-                AppFontStyle.semiboldTextStyle(AppColors.primaryColor, 12.sp),
+          title: Padding(
+            padding: const EdgeInsets.only(right:10),
+            child: Text(
+              'Property',
+              style:
+                  AppFontStyle.semiboldTextStyle(AppColors.primaryColor, 12.sp),
+            ),
           ),
           content: PropertyWidgetTab(),
           isActive: propertyCreationController.currentStep.value >= 0),
       Step(
-          title: Text(
-            'Address',
-            style:
-                AppFontStyle.semiboldTextStyle(AppColors.primaryColor, 12.sp),
+          title: Padding(
+            padding: const EdgeInsets.only(right: 15),
+            child: Text(
+              'Address',
+              style:
+                  AppFontStyle.semiboldTextStyle(AppColors.primaryColor, 12.sp),
+            ),
           ),
           content: AddressWidgetTab(),
           isActive: propertyCreationController.currentStep.value >= 1),

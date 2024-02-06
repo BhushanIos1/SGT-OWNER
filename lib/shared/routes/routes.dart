@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:sgt_owner/feature/Property/assign_guard/views/assign_guard.dart';
 import 'package:sgt_owner/feature/Property/checkpoint/views/create_checkpoints.dart';
-import 'package:sgt_owner/feature/Property/property_creation/views/add_new_property_screen.dart';
+import 'package:sgt_owner/feature/Property/job_assigned_popup.dart';
+import 'package:sgt_owner/feature/Property/add_new_property_screen.dart';
+import 'package:sgt_owner/feature/Property/manage_property/views/manage_property.dart';
 import 'package:sgt_owner/feature/Property/property_creation/views/property_creation.dart';
 import 'package:sgt_owner/feature/Property/property_view_carousal.dart';
 import 'package:sgt_owner/feature/Property/route/views/create_route.dart';
@@ -46,5 +49,8 @@ class RouteClass {
     GetPage(name:"/create_shift", page: () => CreateShiftPage()),
     GetPage(name:"/create_checkpoint", page: () => CreateCheckPointPage()),
     GetPage(name:"/create_route", page: () => CreateRoutePage()),
+    GetPage(name:"/assign_guard", page: () => AssignGuardPage()),
+    GetPage(name:"/job_assigned_popup", page: () => JobAssignedPopup()),
+    GetPage(name:"/manage_property_screen", page: () => ManagePropertyScreen()),
   ];
 }

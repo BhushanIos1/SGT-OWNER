@@ -67,7 +67,7 @@ class CreateRouteController extends GetxController{
     return null;
   }
 
-  String? validateShift(String value) {
+  String? validateShift(value) {
     if (value == '' || value.isEmpty) {
       return "\u24D8  select shift ";
     }

@@ -17,6 +17,7 @@ import 'package:sgt_owner/feature/Property/property_view_carousal.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_bottomsheet.dart';
 import 'package:sgt_owner/shared/widgets/custom_buttons.dart';
+import 'package:sgt_owner/shared/widgets/custom_progressbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_textfield.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
@@ -64,6 +65,9 @@ class _CreateCheckPointPageState extends State<CreateCheckPointPage> {
         body: SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             child: Column(children: [
+              SizedBox(height: 16.h,),
+              MyProgressPage(currentStep: 1),
+              SizedBox(height: 16.h,),
               PropertyCarousal(),
               SizedBox(
                 height: 12.h,
@@ -80,7 +84,6 @@ class _CreateCheckPointPageState extends State<CreateCheckPointPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // CustomStepper(),
                         Divider(
                           color: AppColors.secondaryColor,
                         ),
@@ -381,7 +384,6 @@ class _CreateCheckPointPageState extends State<CreateCheckPointPage> {
                         ),
                         Container(
                           width: Get.width - 32.w,
-                          height: 200.h,
                           padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                               border: Border.all(color: AppColors.disableColor),
@@ -459,13 +461,15 @@ class _CreateCheckPointPageState extends State<CreateCheckPointPage> {
               ),
               AppButton(
                   onTaps: () {
-                    createCheckpointController.checkLogin();
+                    // createCheckpointController.checkLogin();
+                    Get.toNamed("/create_route");
                   },
                   backgoundColor:
                       // createCheckpointController.btnEnabled.value
-                      //     ? AppColors.primaryColor
+                      //     ? 
+                      AppColors.primaryColor,
                       //     :
-                      AppColors.disableColor,
+                      // AppColors.disableColor,
                   textColor: AppColors.white,
                   titleText: "Save & Next"),
               SizedBox(

@@ -7,12 +7,13 @@ import 'package:intl/intl.dart';
 import 'package:get/get.dart';
 import 'package:sgt_owner/feature/Property/property_view_carousal.dart';
 import 'package:sgt_owner/feature/Property/shift/controller/shift_controller.dart';
-import 'package:sgt_owner/feature/Property/shift/views/custom_stepper.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_buttons.dart';
+import 'package:sgt_owner/shared/widgets/custom_progressbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_textfield.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class CreateShiftPage extends StatefulWidget {
   const CreateShiftPage({super.key});
@@ -23,6 +24,9 @@ class CreateShiftPage extends StatefulWidget {
 
 class _CreateShiftPageState extends State<CreateShiftPage> {
   bool hide = false;
+  bool clockInQrImageGenerated = false;
+  bool clockOutQrImageGenerated = false;
+  bool multipleShiftCreated = false;
   final createShiftController = Get.put(CreateShiftController());
 
   // late TabController _tabController;
@@ -55,7 +59,14 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
           physics: BouncingScrollPhysics(),
           child: Column(
             children: [
+              SizedBox(height: 16.h,),
+              MyProgressPage(currentStep: 0,),
+              SizedBox(height: 16.h,),
               PropertyCarousal(),
+              SizedBox(
+                height: 12.h,
+              ),
+              multipleShiftCreated ? ShiftList() : Container(),
               SizedBox(
                 height: 12.h,
               ),
@@ -71,7 +82,6 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        // CustomStepper(),
                         Text(
                           'Shift for Radission Blu Hotel',
                           style: AppFontStyle.semiboldTextStyle(
@@ -114,7 +124,7 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                             },
                             onFieldSubmitted: (value) {
                               FocusScope.of(context)
-                                  .requestFocus(_clockInDescriptionFocus);
+                                  .requestFocus(_clockInTimeFocus);
                             },
                           ),
                         ),
@@ -131,6 +141,7 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                                   AppColors.black, 12.sp),
                             ),
                             TextFormField(
+                              focusNode: _clockInTimeFocus,
                               controller:
                                   createShiftController.clockInTimeController,
                               decoration: InputDecoration(
@@ -188,6 +199,14 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                                   },
                                 );
                               },
+                              validator: (value) {
+                                return createShiftController
+                                    .validateClockInTime(value!);
+                              },
+                              onFieldSubmitted: (value) {
+                                FocusScope.of(context)
+                                    .requestFocus(_clockInDescriptionFocus);
+                              },
                             ),
                           ],
                         ),
@@ -228,28 +247,79 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                               FocusScope.of(context).unfocus();
                             },
                             onFieldSubmitted: (value) {
-                              FocusScope.of(context)
-                                  .requestFocus(_clockOutTimeFocus);
+                              FocusScope.of(context).unfocus();
                             },
                           ),
                         ),
                         SizedBox(
                           height: 14.h,
                         ),
-                        DottedBorder(
-                            color: AppColors.disableColor,
-                            child: Container(
-                              width: Get.width - 32.w,
-                              child: TextButton(
-                                // focusNode: _generateQrCodeFocus,
-                                child: Text(
-                                  'Generate QR code',
-                                  style: AppFontStyle.regularTextStyle(
-                                      AppColors.secondaryColor, 14.sp),
-                                ),
-                                onPressed: () => {},
+                        clockInQrImageGenerated
+                            ? Column(
+                                children: [
+                                  Center(
+                                    child: QrImageView(
+                                      data: createShiftController
+                                          .clockInDescription,
+                                      size: 150.w,
+                                      // You can include embeddedImageStyle Property if you
+                                      //wanna embed an image from your Asset folder
+                                      embeddedImageStyle: QrEmbeddedImageStyle(
+                                        size: Size(174.w, 161.h),
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Scan QR Code to START the shift',
+                                    style: AppFontStyle.mediumTextStyle(
+                                        AppColors.textColor, 12.sp),
+                                  ),
+                                ],
+                              )
+                            : Container(
+                                child:
+                                    createShiftController
+                                                    .shiftNameController.text ==
+                                                '' &&
+                                            createShiftController
+                                                    .clockInTimeController
+                                                    .text ==
+                                                '' &&
+                                            createShiftController
+                                                    .clockInDescriptionController
+                                                    .text ==
+                                                ''
+                                        ? DottedBorder(
+                                            color: AppColors.disableColor,
+                                            child: Container(
+                                              width: Get.width - 32.w,
+                                              child: TextButton(
+                                                // focusNode: _generateQrCodeFocus,
+                                                child: Text(
+                                                  'Generate QR code',
+                                                  style: AppFontStyle
+                                                      .semiboldTextStyle(
+                                                          AppColors
+                                                              .secondaryColor,
+                                                          14.sp),
+                                                ),
+                                                onPressed: () => {},
+                                              ),
+                                            ))
+                                        : AppButton(
+                                            onTaps: () {
+                                              setState(() {
+                                                clockInQrImageGenerated =
+                                                    !clockInQrImageGenerated;
+                                              });
+                                              // Get.toNamed("/generate_qr");
+                                              // createShiftController.checkLogin();
+                                            },
+                                            backgoundColor:
+                                                AppColors.primaryColor,
+                                            textColor: AppColors.white,
+                                            titleText: "Generate QR code"),
                               ),
-                            )),
                         SizedBox(
                           height: 16.h,
                         ),
@@ -326,6 +396,14 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                                   },
                                 );
                               },
+                              validator: (value) {
+                                return createShiftController
+                                    .validateClockOutTime(value!);
+                              },
+                              onFieldSubmitted: (value) {
+                                FocusScope.of(context)
+                                    .requestFocus(_clockOutDescriptionFocus);
+                              },
                             ),
                           ],
                         ),
@@ -367,39 +445,79 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
                               FocusScope.of(context).unfocus();
                             },
                             onFieldSubmitted: (value) {
-                              FocusScope.of(context)
-                                  .requestFocus(_shiftNameFocus);
+                              FocusScope.of(context).unfocus();
                             },
                           ),
                         ),
                         SizedBox(
                           height: 9.h,
                         ),
-                        AppButton(
-                            onTaps: () {
-                              // createShiftController.checkLogin();
-                            },
-                            backgoundColor:
-                                //createShiftController.btnEnabled.value ?
-                                AppColors.primaryColor,
-                            // :
-                            // AppColors.disableColor,
-                            textColor: AppColors.white,
-                            titleText: "Generate QR code"),
-                        // DottedBorder(
-                        //     color: AppColors.disableColor,
-                        //     child: Container(
-                        //       width: Get.width - 32.w,
-                        //       child: TextButton(
-                        //         // focusNode: _generateQrCodeFocus,
-                        //         child: Text(
-                        //           'Generate QR code',
-                        //           style: AppFontStyle.regularTextStyle(
-                        //               AppColors.secondaryColor, 14.sp),
-                        //         ),
-                        //         onPressed: () => {},
-                        //       ),
-                        //     )),
+                        clockOutQrImageGenerated
+                            ? Column(
+                                children: [
+                                  Center(
+                                    child: QrImageView(
+                                      data: createShiftController
+                                          .clockOutDescription,
+                                      size: 150.w,
+                                      // You can include embeddedImageStyle Property if you
+                                      //wanna embed an image from your Asset folder
+                                      embeddedImageStyle: QrEmbeddedImageStyle(
+                                        size: Size(174.w, 161.h),
+                                      ),
+                                    ),
+                                  ),
+                                  Text(
+                                    'Scan QR Code to end the shift',
+                                    style: AppFontStyle.mediumTextStyle(
+                                        AppColors.textColor, 12.sp),
+                                  ),
+                                ],
+                              )
+                            : Container(
+                                child:
+                                    createShiftController
+                                                    .shiftNameController.text ==
+                                                '' &&
+                                            createShiftController
+                                                    .clockOutTimeController
+                                                    .text ==
+                                                '' &&
+                                            createShiftController
+                                                    .clockOutDescriptionController
+                                                    .text ==
+                                                ''
+                                        ? DottedBorder(
+                                            color: AppColors.disableColor,
+                                            child: Container(
+                                              width: Get.width - 32.w,
+                                              child: TextButton(
+                                                // focusNode: _generateQrCodeFocus,
+                                                child: Text(
+                                                  'Generate QR code',
+                                                  style: AppFontStyle
+                                                      .semiboldTextStyle(
+                                                          AppColors
+                                                              .secondaryColor,
+                                                          14.sp),
+                                                ),
+                                                onPressed: () => {},
+                                              ),
+                                            ))
+                                        : AppButton(
+                                            onTaps: () {
+                                              setState(() {
+                                                clockOutQrImageGenerated =
+                                                    !clockOutQrImageGenerated;
+                                              });
+                                              // Get.toNamed("/generate_qr");
+                                              // createShiftController.checkLogin();
+                                            },
+                                            backgoundColor:
+                                                AppColors.primaryColor,
+                                            textColor: AppColors.white,
+                                            titleText: "Generate QR code"),
+                              ),
                         SizedBox(
                           height: 12.h,
                         ),
@@ -411,13 +529,14 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
               ),
               AppButton(
                   onTaps: () {
-                    // createShiftController.checkLogin();
+                    // createShiftController.checkRequiredShiftDetails();
+                    setState(() {
+                      multipleShiftCreated = !multipleShiftCreated;
+                    });
                   },
-                  backgoundColor:
-                      //createShiftController.btnEnabled.value ?
-                      AppColors.black,
-                  // :
-                  // AppColors.disableColor,
+                  backgoundColor: createShiftController.btnEnabled.value
+                      ? AppColors.black
+                      : AppColors.disableColor,
                   textColor: AppColors.white,
                   titleText: "+ Save & Create Another Shift"),
               SizedBox(
@@ -425,6 +544,7 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
               ),
               AppButton(
                   onTaps: () {
+                    Get.toNamed("/create_checkpoint");
                     // createShiftController.checkLogin();
                   },
                   backgoundColor:
@@ -440,5 +560,84 @@ class _CreateShiftPageState extends State<CreateShiftPage> {
             ],
           ),
         ));
+  }
+}
+
+class ShiftList extends StatelessWidget {
+  ShiftList({super.key});
+
+  final List<String> items = [
+    'Item 1',
+    'Item 2',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          'All Created Shifts',
+          style:
+              AppFontStyle.semiboldTextStyle(AppColors.secondaryColor, 14.sp),
+        ),
+        ListView.builder(
+            scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              return Container(
+                color: AppColors.white,
+                width: Get.width - 32.w,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Card(
+                    margin: EdgeInsets.all(2),
+                    color: AppColors.white,
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              items[index].toString(),
+                              style: AppFontStyle.semiboldTextStyle(
+                                  AppColors.secondaryColor, 14.sp),
+                            ),
+                            Icon(
+                              Icons.more_vert,
+                              color: AppColors.secondaryColor,
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            width: Get.width - 32.w,
+                            color: AppColors.primaryBackColor,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  items[index].toString(),
+                                  style: AppFontStyle.semiboldTextStyle(
+                                      AppColors.secondaryColor, 14.sp),
+                                ),
+                                Text(
+                                  items[index].toString(),
+                                  style: AppFontStyle.semiboldTextStyle(
+                                      AppColors.secondaryColor, 14.sp),
+                                ),
+                              ],
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              );
+            }),
+      ],
+    );
   }
 }

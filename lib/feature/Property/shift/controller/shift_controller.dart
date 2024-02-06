@@ -27,7 +27,7 @@ class CreateShiftController extends GetxController{
   // RxBool isFNameValid = false.obs;
 
 
-  // RxBool btnEnabled = false.obs;
+  RxBool btnEnabled = false.obs;
 
   @override
   void onInit() {
@@ -50,6 +50,9 @@ class CreateShiftController extends GetxController{
 
   String? validateShiftName(String value) {
     if (value == '' || value.isEmpty) {
+      Future.delayed(Duration.zero, () {
+        btnEnabled.value = false;
+      });
       return "\u24D8  Please Enter Shift Name";
     }
     return null;
@@ -57,6 +60,9 @@ class CreateShiftController extends GetxController{
 
   String? validateClockInTime(String value) {
     if (value == '' || value.isEmpty) {
+      Future.delayed(Duration.zero, () {
+        btnEnabled.value = false;
+      });
       return "\u24D8  Select ClockIn Time";
     }
     return null;
@@ -64,6 +70,9 @@ class CreateShiftController extends GetxController{
 
   String? validateClockInDescription(String value) {
     if (value == '' || value.isEmpty) {
+      Future.delayed(Duration.zero, () {
+        btnEnabled.value = false;
+      });
       return "\u24D8  Enter ClockIn Description";
     }
     return null;
@@ -71,6 +80,9 @@ class CreateShiftController extends GetxController{
 
   String? validateClockOutTime(String value) {
     if (value == '' || value.isEmpty) {
+      Future.delayed(Duration.zero, () {
+        btnEnabled.value = false;
+      });
       return "\u24D8  Select ClockOut Time";
     }
     return null;
@@ -80,11 +92,18 @@ class CreateShiftController extends GetxController{
     if (value == '' || value.isEmpty) {
       return "\u24D8  Enter ClockOut Description";
     }
+    else{
+      Future.delayed(Duration.zero, () {
+        btnEnabled.value = true;
+      });
+    }
     return null;
   }
 
  
-
+  void checkRequiredShiftDetails() {
+  
+  }
 
 
   void checkLogin() {

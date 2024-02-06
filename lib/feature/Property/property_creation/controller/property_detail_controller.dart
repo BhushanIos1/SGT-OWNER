@@ -55,7 +55,7 @@ class PropertyDetailController extends GetxController {
     return null;
   }
 
-  String? validatePropertyType(String value) {
+  String? validatePropertyType(value) {
     if(value == '' || value.isEmpty) {
       return "\u24D8 Required";
     }

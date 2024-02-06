@@ -7,6 +7,7 @@ import 'package:sgt_owner/feature/Property/property_view_carousal.dart';
 import 'package:sgt_owner/feature/Property/route/controller/create_route_controller.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_buttons.dart';
+import 'package:sgt_owner/shared/widgets/custom_progressbar.dart';
 import 'package:sgt_owner/shared/widgets/custom_textfield.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
@@ -75,6 +76,9 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
           padding: const EdgeInsets.all(12.0),
           child: Column(
             children: [
+              SizedBox(height: 16.h,),
+              MyProgressPage(currentStep: 2),
+              SizedBox(height: 16.h,),
               PropertyCarousal(),
               SizedBox(
                 height: 12.h,
@@ -168,7 +172,7 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Padding(
-                              padding: const EdgeInsets.all(16),
+                              padding: EdgeInsets.symmetric(horizontal:16.w,vertical: 16.h),
                               child: routeLine(),
                             ),
                             Expanded(
@@ -200,6 +204,7 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
               AppButton(
                   onTaps: () {
                     // createCheckpointController.checkLogin();
+                    Get.toNamed("/assign_guard");
                   },
                   backgoundColor:
                       // createCheckpointController.btnEnabled.value
@@ -355,7 +360,7 @@ class _CreateRoutePageState extends State<CreateRoutePage> {
             label: RichText(
                 text: TextSpan(
               text: 'Shift Clock-Out Point',
-              style: AppFontStyle.lightTextStyle(AppColors.redColor, 12.sp),
+              style: AppFontStyle.lightTextStyle(Colors.orangeAccent, 12.sp),
             )),
             hintText: "Night shift Clock-out- 12:00 AM",
             keyboardType: TextInputType.text,
@@ -459,7 +464,7 @@ class routeLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100.h * 3,
+      height: 100.h * 3.h,
       width: 30.w,
       child: ListView.builder(
           physics: NeverScrollableScrollPhysics(),
@@ -510,7 +515,7 @@ class routeLine extends StatelessWidget {
                             width: 30.w,
                             margin: EdgeInsets.all(7),
                             child: Text(
-                              'CH1',
+                              'CP1',
                               style: AppFontStyle.regularTextStyle(
                                   AppColors.textColor, 12.sp),
                             ),

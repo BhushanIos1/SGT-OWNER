@@ -36,10 +36,10 @@ class AppButton extends StatelessWidget {
           onTap: onTaps,
           // ignore: sized_box_for_whitespace
           child: Container(
-            height: 47.h,
+            // height: 47.h,
             width: MediaQuery.of(context).size.width - 32,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 11),
+              padding: EdgeInsets.all(8),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -49,6 +49,7 @@ class AppButton extends StatelessWidget {
                   Text(
                     titleText,
                     style: AppFontStyle.semiboldTextStyle(textColor, 16.sp),
+                    overflow: TextOverflow.ellipsis,
                   ),
                   isIcon
                       ? Icon(
