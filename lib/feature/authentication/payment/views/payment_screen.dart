@@ -108,6 +108,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                         children: [
                                           Image.asset(
                                             'silver_plan.png',
+                                            fit: BoxFit.contain,
                                             width: 24.w,
                                             height: 24.h,
                                           ),
@@ -217,6 +218,7 @@ class _PaymentDetailsPageState extends State<PaymentDetailsPage> {
                                               children: [
                                                 Image.asset(
                                                   'silver_plan.png',
+                                                  fit: BoxFit.contain,
                                                   width: 24.w,
                                                   height: 24.h,
                                                 ),

@@ -17,7 +17,6 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
         backgroundColor: AppColors.primaryColor,
         body: Container(
           height: double.infinity,

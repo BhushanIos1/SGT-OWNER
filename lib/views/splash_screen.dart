@@ -23,13 +23,23 @@ class _SplashScreenState extends State<SplashScreen>
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
 
     Future.delayed(Duration(seconds: 2), () {
-      Get.offNamed("/getStart");
+      // Get.offNamed("/getStart");
       // Get.toNamed("/billing_address");
       // Get.toNamed("/payment_details",parameters: {"CouponStatus":"Successful"});
       // Get.toNamed("/apply_coupon");
       // Get.toNamed("/oops_popUp");
       // Get.toNamed("/coupon_applied_popup");
       // Get.toNamed("/select_plan");
+      Get.toNamed("/add_new_property_screen");
+      // Get.toNamed("/property_creation");
+      // Get.toNamed("/signup");
+      // Get.toNamed("/property_carousal");
+      // Get.toNamed("/create_shift");
+      // Get.toNamed("/create_checkpoint");
+      // Get.toNamed("/create_route");
+      // Get.toNamed("/assign_guard");
+      // Get.toNamed("/job_assigned_popup");
+      // Get.toNamed("/manage_property_screen");
     });
   }
 

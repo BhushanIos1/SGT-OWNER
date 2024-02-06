@@ -1,6 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:sgt_owner/feature/Property/assign_guard/views/assign_guard.dart';
+import 'package:sgt_owner/feature/Property/checkpoint/views/create_checkpoints.dart';
+import 'package:sgt_owner/feature/Property/job_assigned_popup.dart';
+import 'package:sgt_owner/feature/Property/add_new_property_screen.dart';
+import 'package:sgt_owner/feature/Property/manage_property/views/manage_property.dart';
+import 'package:sgt_owner/feature/Property/property_creation/views/property_creation.dart';
+import 'package:sgt_owner/feature/Property/property_view_carousal.dart';
+import 'package:sgt_owner/feature/Property/route/views/create_route.dart';
+import 'package:sgt_owner/feature/Property/shift/views/create_shift.dart';
 import 'package:sgt_owner/feature/authentication/company_details/views/company_details_screen.dart';
 import 'package:sgt_owner/feature/authentication/email_verification/views/email_verification.dart';
 import 'package:sgt_owner/feature/authentication/new_password/views/new_password.dart';
@@ -34,5 +43,14 @@ class RouteClass {
     GetPage(name: "/apply_coupon", page: () => ApplyCouponPage()),
     GetPage(name: "/oops_coupon_popUp", page: () => OopsPopupDialog()),
     GetPage(name: "/coupon_applied_popup", page: () => CouponAppliedDialog()),
+    GetPage(name: "/add_new_property_screen", page: () => AddNewPropertyScreen()),
+    GetPage(name: "/property_creation", page: () => PropertyCreationPage()),
+    GetPage(name: "/property_carousal", page: () => PropertyCarousal()),
+    GetPage(name:"/create_shift", page: () => CreateShiftPage()),
+    GetPage(name:"/create_checkpoint", page: () => CreateCheckPointPage()),
+    GetPage(name:"/create_route", page: () => CreateRoutePage()),
+    GetPage(name:"/assign_guard", page: () => AssignGuardPage()),
+    GetPage(name:"/job_assigned_popup", page: () => JobAssignedPopup()),
+    GetPage(name:"/manage_property_screen", page: () => ManagePropertyScreen()),
   ];
 }

@@ -20,6 +20,7 @@ class ShouldPopAlertDialog extends StatelessWidget {
             'assets/success.png',
             width: 60.w,
             height: 60.h,
+            fit: BoxFit.contain,
           ),
           Center(
             child: Padding(

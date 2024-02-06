@@ -18,6 +18,7 @@ class OopsPopupDialog extends StatelessWidget {
               'assets/not_success.png',
               width: 60.w,
               height: 60.h,
+              fit: BoxFit.contain,
             ),
             Center(
               child: Padding(

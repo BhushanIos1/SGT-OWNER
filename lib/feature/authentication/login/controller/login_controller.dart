@@ -74,7 +74,8 @@ class LoginController extends GetxController {
     if (!isPasswordValid.value) {
       return;
     } else {
-      Get.defaultDialog(middleText: "Login Successfully");
+      // Get.defaultDialog(middleText: "Login Successfully");
+      Get.offNamed("/add_new_property_screen");
       passFormKey.currentState!.save();
     }
   }

@@ -585,6 +585,7 @@ class AddProfileImage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        if(imgController.selectedImagePath.value != "")
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context).pop();
@@ -735,6 +736,7 @@ class AddProfileImage extends StatelessWidget {
                             ),
                           ),
                         ),
+                        
                         Center(
                           child: Container(
                             padding: EdgeInsets.only(top: 15.h, bottom: 16.h),
@@ -750,6 +752,7 @@ class AddProfileImage extends StatelessWidget {
                             ),
                           ),
                         ),
+
                       ]),
                     ),
                   );
