@@ -1,15 +1,19 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get.dart';
-import 'package:sgt_owner/feature/Property/assign_guard/views/assign_guard.dart';
-import 'package:sgt_owner/feature/Property/checkpoint/views/create_checkpoints.dart';
-import 'package:sgt_owner/feature/Property/job_assigned_popup.dart';
-import 'package:sgt_owner/feature/Property/add_new_property_screen.dart';
-import 'package:sgt_owner/feature/Property/manage_property/views/manage_property.dart';
-import 'package:sgt_owner/feature/Property/property_creation/views/property_creation.dart';
-import 'package:sgt_owner/feature/Property/property_view_carousal.dart';
-import 'package:sgt_owner/feature/Property/route/views/create_route.dart';
-import 'package:sgt_owner/feature/Property/shift/views/create_shift.dart';
+import 'package:sgt_owner/feature/More/more.dart';
+import 'package:sgt_owner/feature/More/shifts_screen/shift_screen.dart';
+import 'package:sgt_owner/feature/More/staff_screen/staff_screen.dart';
+import 'package:sgt_owner/feature/Properties/assign_guard/views/assign_guard.dart';
+import 'package:sgt_owner/feature/Properties/checkpoint/views/create_checkpoints.dart';
+import 'package:sgt_owner/feature/Properties/job_assigned_popup.dart';
+import 'package:sgt_owner/feature/Properties/add_new_property_screen.dart';
+import 'package:sgt_owner/feature/Properties/manage_property/views/manage_property.dart';
+import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shifts.dart';
+import 'package:sgt_owner/feature/Properties/property_creation/views/property_creation.dart';
+import 'package:sgt_owner/feature/Properties/property_view_carousal.dart';
+import 'package:sgt_owner/feature/Properties/route/views/create_route.dart';
+import 'package:sgt_owner/feature/Properties/shift/views/create_shift.dart';
 import 'package:sgt_owner/feature/authentication/company_details/views/company_details_screen.dart';
 import 'package:sgt_owner/feature/authentication/email_verification/views/email_verification.dart';
 import 'package:sgt_owner/feature/authentication/new_password/views/new_password.dart';
@@ -21,6 +25,7 @@ import 'package:sgt_owner/feature/authentication/payment/views/payment_screen.da
 import 'package:sgt_owner/feature/authentication/payment/views/select_plan_screen.dart';
 import 'package:sgt_owner/feature/authentication/resetPassword/views/reset_password_screen.dart';
 import 'package:sgt_owner/feature/authentication/signup/views/signup_screen.dart';
+import 'package:sgt_owner/feature/home_tabs_screen.dart';
 import 'package:sgt_owner/views/get_started_screen.dart';
 import 'package:sgt_owner/feature/authentication/login/views/login.dart';
 import 'package:sgt_owner/views/splash_screen.dart';
@@ -52,5 +57,9 @@ class RouteClass {
     GetPage(name:"/assign_guard", page: () => AssignGuardPage()),
     GetPage(name:"/job_assigned_popup", page: () => JobAssignedPopup()),
     GetPage(name:"/manage_property_screen", page: () => ManagePropertyScreen()),
+    GetPage(name: "/dashboard", page:()=> HomeTabsScreens()),
+    GetPage(name: "/shift_screen", page:() => ShiftScreen()),
+    GetPage(name: "/staff_screen", page:() => StaffScreen()),
+    // GetPage(name: "/more", page:()=> MoreTabScreen()),
   ];
 }

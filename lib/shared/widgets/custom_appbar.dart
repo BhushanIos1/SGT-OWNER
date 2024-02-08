@@ -38,13 +38,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Icons.arrow_back_outlined,
               color: Colors.transparent,
             ),
-      leadingWidth: isLeading ?? false ? 30 : 0,
+      leadingWidth: isLeading ?? false ? 30.w : 0,
       title: Text(
         titleText,
         style: AppFontStyle.semiboldTextStyle(AppColors.textColor, 17.sp),
       ),
       centerTitle: false,
-      actions: titleText == "Dashboard" || titleText =="Properties" ?  [
+      actions: titleText == "Dashboard" || titleText =="Properties" || titleText =="Total Shifts" ? [
         IconButton(
           onPressed: () {
             //screenNavigator(context, SettingsScreen());
@@ -64,10 +64,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
         SizedBox(
-          width: 10,
+          width: 10.w,
         ),
         CircleAvatar(
-          radius: 15,
+          radius: 15.r,
           backgroundColor: Colors.transparent,
           child: ClipRRect(
             borderRadius: BorderRadius.circular(15),
