@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shift_list.dart';
+import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shifts/shift_list.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
 
-class ShiftScreen extends StatefulWidget {
-  const ShiftScreen({super.key});
+class ShiftListingScreen extends StatefulWidget {
+  const ShiftListingScreen({super.key});
 
   @override
-  State<ShiftScreen> createState() => _ShiftScreenState();
+  State<ShiftListingScreen> createState() => _ShiftListingScreenState();
 }
 
-class _ShiftScreenState extends State<ShiftScreen> {
+class _ShiftListingScreenState extends State<ShiftListingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

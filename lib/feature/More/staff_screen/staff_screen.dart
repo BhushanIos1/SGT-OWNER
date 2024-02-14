@@ -41,10 +41,15 @@ class _StaffScreenState extends State<StaffScreen> {
                       style: AppFontStyle.semiboldTextStyle(
                           AppColors.textColor, 16.sp),
                     ),
-                    Text(
-                      '+ Add new Staff',
-                      style: AppFontStyle.semiboldTextStyle(
-                          AppColors.primaryColor, 16.sp),
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed('/add_staff');
+                      },
+                      child: Text(
+                        '+ Add new Staff',
+                        style: AppFontStyle.semiboldTextStyle(
+                            AppColors.primaryColor, 16.sp),
+                      ),
                     ),
                   ],
                 ),

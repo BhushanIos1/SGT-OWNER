@@ -149,12 +149,14 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                                             MainAxisAlignment.spaceAround,
                                         children: [
                                           Image.asset(
-                                            'silver_plan.png',
+                                            'assets/silver_plan.png',
                                             width: 24.w,
                                             height: 24.h,
                                             fit: BoxFit.contain,
                                           ),
-                                          SizedBox(width: 3.w,),
+                                          SizedBox(
+                                            width: 3.w,
+                                          ),
                                           Text(
                                             'Silver',
                                             style: AppFontStyle.mediumTextStyle(
@@ -164,7 +166,7 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                                       ),
                                       Text(
                                         'Monthly Plan',
-                                        textAlign:TextAlign.end,
+                                        textAlign: TextAlign.end,
                                         style: AppFontStyle.regularTextStyle(
                                             AppColors.grayColor, 12.sp),
                                       ),
@@ -294,7 +296,7 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                               selectedState = null;
                               selectedCity = null;
                             });
-                          }),
+                          }, 'Select Country'),
                         ),
                       ),
                       Padding(
@@ -309,13 +311,13 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                                     selectedState = value;
                                     selectedCity = null;
                                   });
-                                })
+                                }, 'Select State')
                               : buildDropdown('State', [], (value) {
                                   setState(() {
                                     selectedState = value;
                                     selectedCity = null;
                                   });
-                                }),
+                                }, 'Select State'),
                         ),
                       ),
                       Padding(
@@ -329,12 +331,12 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
                                   setState(() {
                                     selectedCity = value;
                                   });
-                                })
+                                }, 'Select City')
                               : buildDropdown('City', [], (value) {
                                   setState(() {
                                     selectedCity = value;
                                   });
-                                }),
+                                }, 'Select City'),
                         ),
                       ),
                     ],
@@ -372,7 +374,7 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
     );
   }
 
-  Widget buildDropdown(String label, List<String> items, onChanged) {
+  Widget buildDropdown(String label, List<String> items, onChanged, hintText) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -386,8 +388,46 @@ class _BillingAddressPageState extends State<BillingAddressPage> {
             );
           }).toList(),
           decoration: InputDecoration(
-            labelText: label,
-            border: OutlineInputBorder(),
+            filled: true,
+            fillColor: Colors.white,
+            hintText: hintText,
+            hintStyle:
+                AppFontStyle.regularTextStyle(AppColors.hintColor, 12.sp),
+            errorStyle: AppFontStyle.regularTextStyle(
+              AppColors.redColor,
+              10.sp,
+            ),
+            label: RichText(
+                text: TextSpan(
+                    text: label,
+                    style: AppFontStyle.lightTextStyle(AppColors.black, 14.sp),
+                    children: [
+                  TextSpan(
+                      text: ' *',
+                      style: TextStyle(
+                        color: Colors.red,
+                      ))
+                ])),
+            labelStyle: AppFontStyle.regularTextStyle(AppColors.black, 12.sp),
+            contentPadding:
+                EdgeInsets.symmetric(horizontal: 19.w, vertical: 5.h),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+              borderSide:
+                  const BorderSide(width: 1, color: AppColors.disableColor),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+              borderSide:
+                  const BorderSide(width: 1, color: AppColors.disableColor),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(5.0),
+              borderSide: const BorderSide(
+                color: AppColors.primaryColor,
+                width: 1.0,
+              ),
+            ),
           ),
         ),
 

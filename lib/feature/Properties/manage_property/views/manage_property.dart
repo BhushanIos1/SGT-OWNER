@@ -2,12 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/checkpoints.dart';
+import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/checkpoint/checkpoints.dart';
 import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/guard_assigned.dart';
 import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/property_details.dart';
 import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/reports/reports.dart';
 import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/routes.dart';
-import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shifts.dart';
+import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shifts/shifts.dart';
 import 'package:sgt_owner/shared/widgets/custom_appbar.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
