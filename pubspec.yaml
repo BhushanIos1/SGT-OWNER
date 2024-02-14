@@ -97,6 +97,8 @@ flutter:
     - assets/user.png
     - assets/reports_vector.png
     - assets/checkpoint_vector.png
+    - assets/temp_profile.png
+    - assets/add_staff_success.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

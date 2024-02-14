@@ -309,7 +309,7 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
                               selectedState = null;
                               selectedCity = null;
                             });
-                          }),
+                          },'Select Country'),
                         ),
                       ),
                       Padding(
@@ -324,13 +324,13 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
                                     selectedState = value;
                                     selectedCity = null;
                                   });
-                                })
+                                },'Select State')
                               : buildDropdown('State', [], (value) {
                                   setState(() {
                                     selectedState = value;
                                     selectedCity = null;
                                   });
-                                }),
+                                },'Select State'),
                         ),
                       ),
                       Padding(
@@ -344,12 +344,12 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
                                   setState(() {
                                     selectedCity = value;
                                   });
-                                })
+                                },'Select City')
                               : buildDropdown('City', [], (value) {
                                   setState(() {
                                     selectedCity = value;
                                   });
-                                }),
+                                },'Select City'),
                         ),
                       ),
                     ],
@@ -387,7 +387,7 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
     );
   }
 
-  Widget buildDropdown(String label, List<String> items, onChanged) {
+  Widget buildDropdown(String label, List<String> items, onChanged,hintText) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -401,9 +401,49 @@ class _CompanyDetailsPageState extends State<CompanyDetailsPage> {
             );
           }).toList(),
           decoration: InputDecoration(
-            labelText: label,
-            border: OutlineInputBorder(),
-          ),
+                                filled: true,
+                                fillColor: Colors.white,
+                                hintText: hintText,
+                                hintStyle: AppFontStyle.regularTextStyle(
+                                    AppColors.hintColor, 12.sp),
+                                errorStyle: AppFontStyle.regularTextStyle(
+                                  AppColors.redColor,
+                                  10.sp,
+                                ),
+                                label: RichText(
+                                  text: TextSpan(
+                                      text: label,
+                                      style: AppFontStyle.lightTextStyle(
+                                          AppColors.black, 14.sp),
+                                      children: [
+                                    TextSpan(
+                                        text: ' *',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                        ))
+                                  ])),
+                                labelStyle: AppFontStyle.regularTextStyle(
+                                    AppColors.black, 12.sp),
+                                contentPadding: EdgeInsets.symmetric(
+                                    horizontal: 19.w, vertical: 5.h),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: const BorderSide(
+                                      width: 1, color: AppColors.disableColor),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: const BorderSide(
+                                      width: 1, color: AppColors.disableColor),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5.0),
+                                  borderSide: const BorderSide(
+                                    color: AppColors.primaryColor,
+                                    width: 1.0,
+                                  ),
+                                ),
+                              ),
         ),
       ],
     );

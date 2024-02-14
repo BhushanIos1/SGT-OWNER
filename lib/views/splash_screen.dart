@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen>
       // Get.offNamed("/getStart");
       // Get.toNamed("/billing_address");
       // Get.toNamed("/payment_details",parameters: {"CouponStatus":"Successful"});
-      // Get.toNamed("/apply_coupon");
+      // Get.toNamed("/company_details");
       // Get.toNamed("/oops_popUp");
       // Get.toNamed("/coupon_applied_popup");
       // Get.toNamed("/select_plan");

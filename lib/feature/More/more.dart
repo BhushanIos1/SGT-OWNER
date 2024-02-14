@@ -278,23 +278,28 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
                     SizedBox(
                       height: 24.h,
                     ),
-                    Row(
-                      children: [
-                        Image.asset(
-                          "assets/checkpoint_vector.png",
-                          fit: BoxFit.fill,
-                          width: 20.w,
-                          height: 20.h,
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        Text(
-                          "Checkpoint",
-                          style: AppFontStyle.mediumTextStyle(
-                              AppColors.textColor, 16.sp),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed("/checkpoint_listing_screen");
+                      },
+                      child: Row(
+                        children: [
+                          Image.asset(
+                            "assets/checkpoint_vector.png",
+                            fit: BoxFit.fill,
+                            width: 20.w,
+                            height: 20.h,
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            "Checkpoint",
+                            style: AppFontStyle.mediumTextStyle(
+                                AppColors.textColor, 16.sp),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 12.h,

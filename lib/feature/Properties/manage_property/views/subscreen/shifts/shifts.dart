@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shift_list.dart';
+import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/shifts/shift_list.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
 
