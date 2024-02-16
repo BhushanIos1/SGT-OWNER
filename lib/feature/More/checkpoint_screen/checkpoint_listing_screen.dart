@@ -1,6 +1,6 @@
+// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sgt_owner/feature/Properties/manage_property/views/subscreen/checkpoint/checkpoint_list.dart';

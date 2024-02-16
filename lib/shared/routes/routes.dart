@@ -1,8 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:get/get.dart';
+import 'package:sgt_owner/feature/More/checkpoint_screen/checkpoint_detail_screen.dart';
+import 'package:sgt_owner/feature/More/checkpoint_screen/checkpoint_history_screen.dart';
 import 'package:sgt_owner/feature/More/checkpoint_screen/checkpoint_listing_screen.dart';
-import 'package:sgt_owner/feature/More/more.dart';
+import 'package:sgt_owner/feature/More/checkpoint_screen/edit_checkpoint_and_task/views/edit_checkpoint_and_task_screen.dart';
+import 'package:sgt_owner/feature/More/manage_leaves_screen/leaves_listing_screen.dart';
+import 'package:sgt_owner/feature/More/route_screen/route_detail_screen.dart';
+import 'package:sgt_owner/feature/More/route_screen/route_listings_screen.dart';
+import 'package:sgt_owner/feature/More/shifts_screen/edit_shift/views/edit_shift_screen.dart';
+import 'package:sgt_owner/feature/More/shifts_screen/shift_detail_screen.dart';
 import 'package:sgt_owner/feature/More/shifts_screen/shift_list_screen.dart';
 import 'package:sgt_owner/feature/More/staff_screen/add_staff/views/add_staff.dart';
 import 'package:sgt_owner/feature/More/staff_screen/staff_profile/views/edit_staff_profile.dart';
@@ -62,11 +69,18 @@ class RouteClass {
     GetPage(name:"/manage_property_screen", page: () => ManagePropertyScreen()),
     GetPage(name: "/dashboard", page:()=> HomeTabsScreens()),
     GetPage(name: "/shift_screen", page:() => ShiftListingScreen()),
+    GetPage(name: "/shift_detail", page:() => ShiftDetailScreen()),
+    GetPage(name: "/edit_shift", page:() => EditShiftScreen()),
     GetPage(name: "/staff_screen", page:() => StaffScreen()),
     GetPage(name: "/add_staff", page:() => AddStaffPage()),
     GetPage(name: "/staff_profile", page:() => StaffProfile()),
     GetPage(name: "/edit_staff", page:() => EditStaffProfile()),
-    GetPage(name: "/edit_staff", page:() => EditStaffProfile()),
     GetPage(name: "/checkpoint_listing_screen", page:() => CheckpointListingScreen()),
+    GetPage(name: "/checkpoint_detail_screen", page:() => CheckpointDetailScreen()),
+    GetPage(name: "/checkpoint_history_screen", page:() => CheckpointHistoryScreen()),
+    GetPage(name: "/edit_checkpoint_and_task", page:() => EditCheckpointAndTaskScreen()),
+    GetPage(name: "/route_listing_screen", page:() => RouteListingScreen()),
+    GetPage(name: "/route_detail_screen", page:() => RouteDetailScreen()),
+    GetPage(name: "/leave_listing_screen", page:() => LeaveListingScreen()),
   ];
 }

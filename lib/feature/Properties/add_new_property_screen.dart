@@ -93,7 +93,7 @@ class _AddNewPropertyScreenState extends State<AddNewPropertyScreen> {
                   ),
                   TextButton(
                     onPressed: () {
-                      print('Clicked');
+                      Get.toNamed("/property_creation");
                     },
                     child: Container(
                       padding: EdgeInsets.all(8.w),
