@@ -75,7 +75,7 @@ class LoginController extends GetxController {
       return;
     } else {
       // Get.defaultDialog(middleText: "Login Successfully");
-      Get.offNamed("/add_new_property_screen");
+      Get.offNamed("/dashboard");
       passFormKey.currentState!.save();
     }
   }

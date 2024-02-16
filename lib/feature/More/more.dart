@@ -310,21 +310,26 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
                     SizedBox(
                       height: 24.h,
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.cable,
-                          color: AppColors.grayColor,
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        Text(
-                          "Routes",
-                          style: AppFontStyle.mediumTextStyle(
-                              AppColors.textColor, 16.sp),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed('/route_listing_screen');
+                      },
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.cable,
+                            color: AppColors.grayColor,
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            "Routes",
+                            style: AppFontStyle.mediumTextStyle(
+                                AppColors.textColor, 16.sp),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 12.h,
@@ -360,21 +365,26 @@ class _MoreTabScreenState extends State<MoreTabScreen> {
                     SizedBox(
                       height: 24.h,
                     ),
-                    Row(
-                      children: [
-                        Icon(
-                          Icons.archive,
-                          color: AppColors.grayColor,
-                        ),
-                        SizedBox(
-                          width: 10.w,
-                        ),
-                        Text(
-                          "Manage Leaves",
-                          style: AppFontStyle.mediumTextStyle(
-                              AppColors.textColor, 16.sp),
-                        ),
-                      ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.toNamed('/leave_listing_screen');
+                      },
+                      child: Row(
+                        children: [
+                        const  Icon(
+                            Icons.archive,
+                            color: AppColors.grayColor,
+                          ),
+                          SizedBox(
+                            width: 10.w,
+                          ),
+                          Text(
+                            "Manage Leaves",
+                            style: AppFontStyle.mediumTextStyle(
+                                AppColors.textColor, 16.sp),
+                          ),
+                        ],
+                      ),
                     ),
                     SizedBox(
                       height: 12.h,

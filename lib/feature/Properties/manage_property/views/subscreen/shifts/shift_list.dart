@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:sgt_owner/style/colors.dart';
 import 'package:sgt_owner/style/font_style.dart';
 
@@ -45,107 +46,112 @@ class _ShiftListState extends State<ShiftList> {
                     margin: EdgeInsets.all(2),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Property Name",
-                                    style: AppFontStyle.regularTextStyle(
-                                        AppColors.textColor, 12.sp),
-                                  ),
-                                  Text(
-                                    "Radission Blu Hotel",
-                                    style: AppFontStyle.semiboldTextStyle(
-                                        AppColors.primaryColor, 14.sp),
-                                  ),
-                                ],
-                              ),
-                              Icon(
-                                Icons.more_vert,
-                                color: AppColors.secondaryColor,
-                              ),
-                            ],
-                          ),
-                          Container(
-                            padding: EdgeInsets.all(8.w),
-                            decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.all(Radius.elliptical(5.r, 5.r)),
-                              color: AppColors.primaryBackColor,
-                            ),
-                            child: Column(
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.toNamed("/shift_detail");
+                        },
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          "Shift Name",
-                                          style: AppFontStyle.regularTextStyle(
-                                              AppColors.textColor, 12.sp),
-                                        ),
-                                        Text(
-                                          items[index].toString(),
-                                          style: AppFontStyle.semiboldTextStyle(
-                                              AppColors.primaryColor, 14.sp),
-                                        ),
-                                      ],
+                                    Text(
+                                      "Property Name",
+                                      style: AppFontStyle.regularTextStyle(
+                                          AppColors.textColor, 12.sp),
+                                    ),
+                                    Text(
+                                      "Radission Blu Hotel",
+                                      style: AppFontStyle.semiboldTextStyle(
+                                          AppColors.primaryColor, 14.sp),
                                     ),
                                   ],
                                 ),
-                                SizedBox(
-                                  height: 8.h,
+                                Icon(
+                                  Icons.more_vert,
+                                  color: AppColors.secondaryColor,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "Clock In: ",
-                                          style: AppFontStyle.mediumTextStyle(
-                                              AppColors.textColor, 14.sp),
-                                        ),
-                                        Text(
-                                          "08:00 AM",
-                                          style: AppFontStyle.mediumTextStyle(
-                                              AppColors.secondaryColor, 14.sp),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text(
-                                          "Clock Out: ",
-                                          style: AppFontStyle.mediumTextStyle(
-                                              AppColors.textColor, 14.sp),
-                                        ),
-                                        Text(
-                                          "08:00 PM",
-                                          style: AppFontStyle.mediumTextStyle(
-                                              AppColors.secondaryColor, 14.sp),
-                                        ),
-                                      ],
-                                    )
-                                  ],
-                                )
                               ],
                             ),
-                          )
-                        ],
+                            Container(
+                              padding: EdgeInsets.all(8.w),
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    BorderRadius.all(Radius.elliptical(5.r, 5.r)),
+                                color: AppColors.primaryBackColor,
+                              ),
+                              child: Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Shift Name",
+                                            style: AppFontStyle.regularTextStyle(
+                                                AppColors.textColor, 12.sp),
+                                          ),
+                                          Text(
+                                            items[index].toString(),
+                                            style: AppFontStyle.semiboldTextStyle(
+                                                AppColors.primaryColor, 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 8.h,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "Clock In: ",
+                                            style: AppFontStyle.mediumTextStyle(
+                                                AppColors.textColor, 14.sp),
+                                          ),
+                                          Text(
+                                            "08:00 AM",
+                                            style: AppFontStyle.mediumTextStyle(
+                                                AppColors.secondaryColor, 14.sp),
+                                          ),
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text(
+                                            "Clock Out: ",
+                                            style: AppFontStyle.mediumTextStyle(
+                                                AppColors.textColor, 14.sp),
+                                          ),
+                                          Text(
+                                            "08:00 PM",
+                                            style: AppFontStyle.mediumTextStyle(
+                                                AppColors.secondaryColor, 14.sp),
+                                          ),
+                                        ],
+                                      )
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   ),

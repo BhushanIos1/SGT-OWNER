@@ -37,9 +37,9 @@ class AppButton extends StatelessWidget {
           // ignore: sized_box_for_whitespace
           child: Container(
             // height: 47.h,
-            width: MediaQuery.of(context).size.width - 32,
+            width: MediaQuery.of(context).size.width - 32.w,
             child: Padding(
-              padding: EdgeInsets.all(8),
+              padding: EdgeInsets.all(8.w),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -55,13 +55,13 @@ class AppButton extends StatelessWidget {
                       ? Icon(
                           Icons.arrow_forward_rounded,
                           color: textColor,
-                          size: 25,
+                          size: 25.w,
                         )
                       : Icon(
                           Icons.ac_unit,
                           color: Colors.transparent,
-                          size: 25,
-                        )
+                          size: 25.w,
+                        ),
                 ],
               ),
             ),
